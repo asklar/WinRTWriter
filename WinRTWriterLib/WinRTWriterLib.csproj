@@ -19,6 +19,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AttributeTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\EnumTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EnumTemplate.cs</LastGenOutput>
+    </None>
     <None Update="Templates\PropertyTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PropertyTemplate.cs</LastGenOutput>
@@ -43,6 +47,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AttributeTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\EnumTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EnumTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\PropertyTemplate.cs">
       <DesignTime>True</DesignTime>

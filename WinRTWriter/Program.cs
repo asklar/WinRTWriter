@@ -11,7 +11,7 @@ namespace WinRTWriter
 
             WinRTEnum @enum = assembly.DefineEnum("MyEnum");
             @enum.Fields.Add(new WinRTEnumValue(@enum, "Value1", 0));
-            @enum.Fields.Add(new WinRTEnumValue(@enum, "Value2", 0));
+            @enum.Fields.Add(new WinRTEnumValue(@enum, "Value2"));
 
             WinRTRuntimeClass button = assembly.DefineRuntimeClass("Button");
             button.Properties.Add(new WinRTProperty("Text", WinRTBasicType.String));

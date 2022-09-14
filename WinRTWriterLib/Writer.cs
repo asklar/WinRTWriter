@@ -42,7 +42,7 @@ namespace WinRTWriterLib
             public WinRTProperty Property { get; }
         }
 
-        public partial class AttributeTemplate: Transformer
+        public partial class AttributeTemplate : Transformer
         {
             public AttributeTemplate(WinRTAttribute attribute, Writer writer)
             {
@@ -51,6 +51,17 @@ namespace WinRTWriterLib
             }
             public Writer Writer { get; }
             public WinRTAttribute Attribute { get; }
+        }
+
+        public partial class EnumTemplate : Transformer
+        {
+            public EnumTemplate(WinRTEnum @enum, Writer writer)
+            {
+                Enum = @enum;
+                Writer = writer;
+            }
+            public Writer Writer { get; }
+            public WinRTEnum Enum { get; }
         }
     }
 
