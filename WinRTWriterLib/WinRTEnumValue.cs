@@ -8,7 +8,7 @@
         {
             EnumType = enumType;
             Name = name;
-            Value = value.HasValue ? Value : EnumType.Fields.Max(_ => _.Value) + 1;
+            Value = value ?? EnumType.Fields.Max(_ => _.Value) + 1;
         }
     }
 }

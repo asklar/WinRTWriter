@@ -49,7 +49,7 @@ namespace WinRTWriterLib.Templates
             #line hidden
             
             #line 7 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Class.Interfaces.Count != 0 ? ": " + string.Join(", ", Class.Interfaces.Select(_ => _.Name)) : ""));
+            this.Write(this.ToStringHelper.ToStringWithCulture(Class.Interfaces.Count != 0 ? " : " + string.Join(", ", Class.Interfaces.Select(_ => _.Name)) : ""));
             
             #line default
             #line hidden

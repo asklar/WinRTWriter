@@ -30,11 +30,10 @@ namespace WinRTWriterLib.Templates
         {
             
             #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\PropertyTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Property.Visibility == WinRTVisibility.Protected ? "protected" : ""));
+            this.Write(this.ToStringHelper.ToStringWithCulture(Property.Visibility == WinRTVisibility.Protected ? "protected " : ""));
             
             #line default
             #line hidden
-            this.Write(" ");
             
             #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\PropertyTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Property.Type.Name));

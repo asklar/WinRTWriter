@@ -4,7 +4,7 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#= Writer.Transform(Class.Attributes, true) #>
-runtimeclass <#= Class.Name #><#= Class.BaseClass != null ? $"extends {Class.BaseClass.Name}" : "" #><#= Class.Interfaces.Count != 0 ? ": " + string.Join(", ", Class.Interfaces.Select(_ => _.Name)) : ""  #>
+runtimeclass <#= Class.Name #><#= Class.BaseClass != null ? $"extends {Class.BaseClass.Name}" : "" #><#= Class.Interfaces.Count != 0 ? " : " + string.Join(", ", Class.Interfaces.Select(_ => _.Name)) : ""  #>
 {
 <#
   Writer.Indent++;

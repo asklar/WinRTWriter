@@ -11,9 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Templates\AssemblyTemplate.tt">
+    <None Update="Templates\NamespaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>AssemblyTemplate.cs</LastGenOutput>
+      <LastGenOutput>NamespaceTemplate.cs</LastGenOutput>
     </None>
     <None Update="Templates\AttributeUsageTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -46,10 +46,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\AssemblyTemplate.cs">
+    <Compile Update="Templates\NamespaceTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>AssemblyTemplate.tt</DependentUpon>
+      <DependentUpon>NamespaceTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\AttributeUsageTemplate.cs">
       <DesignTime>True</DesignTime>

@@ -3,4 +3,4 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#= Property.Visibility == WinRTVisibility.Protected ? "protected" : ""#> <#= Property.Type.Name #> <#= Property.Name #><#= Property.IsReadOnly ? " { get; }" : ""#>;
+<#= Property.Visibility == WinRTVisibility.Protected ? "protected " : ""#><#= Property.Type.Name #> <#= Property.Name #><#= Property.IsReadOnly ? " { get; }" : ""#>;

@@ -1,23 +1,24 @@
 ﻿namespace WinRTWriterLib
 {
-    public class WinRTAssembly : WinRTEntity
+    public class WinRTNamespace : WinRTEntity
     {
-        public WinRTAssembly(string assemblyName)
-        {
-            Name = assemblyName;
-        }
-
         public string AssemblyName { get => base.Name!; }
 
-        public List<WinRTType> Members { get; private set; } = new();
+        public List<WinRTEntity> Members { get; private set; } = new();
 
-        private T DefineMember<T>(string name) where T : WinRTType, new()
+        private T DefineMember<T>(string name) where T : WinRTEntity, new()
         {
             var member = new T();
             member.Name = name;
             Members.Add(member);
             return member;
         }
+
+        public WinRTNamespace DefineNamespace(string namespaceName)
+        {
+            return DefineMember<WinRTNamespace>(namespaceName);
+        }
+
         public WinRTRuntimeClass DefineRuntimeClass(string className)
         {
             return DefineMember<WinRTRuntimeClass>(className);
