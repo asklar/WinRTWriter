@@ -31,6 +31,17 @@ namespace WinRTWriterLib
             public WinRTRuntimeClass Class { get; }
         }
 
+        public partial class InterfaceTemplate : Transformer
+        {
+            public InterfaceTemplate(WinRTInterface @interface, Writer writer)
+            {
+                Interface = @interface;
+                Writer = writer;
+            }
+            public Writer Writer { get; }
+            public WinRTInterface Interface { get; }
+        }
+
         public partial class PropertyTemplate : Transformer
         {
             public PropertyTemplate(WinRTProperty property, Writer writer)
@@ -42,15 +53,26 @@ namespace WinRTWriterLib
             public WinRTProperty Property { get; }
         }
 
-        public partial class AttributeTemplate : Transformer
+        public partial class MethodTemplate : Transformer
         {
-            public AttributeTemplate(WinRTAttribute attribute, Writer writer)
+            public MethodTemplate(WinRTMethod method, Writer writer)
+            {
+                Method = method;
+                Writer = writer;
+            }
+            public Writer Writer { get; }
+            public WinRTMethod Method { get; }
+        }
+
+        public partial class AttributeUsageTemplate : Transformer
+        {
+            public AttributeUsageTemplate(WinRTAttributeUsage attribute, Writer writer)
             {
                 Attribute = attribute;
                 Writer = writer;
             }
             public Writer Writer { get; }
-            public WinRTAttribute Attribute { get; }
+            public WinRTAttributeUsage Attribute { get; }
         }
 
         public partial class EnumTemplate : Transformer
@@ -85,16 +107,33 @@ namespace WinRTWriterLib
         }
 
         internal int Indent { get; set; }
-        internal string Transform(WinRTEntity entity)
+        internal string Transform(WinRTEntity entity, bool withIndent = true)
         {
             Transformer? transformer = GetTransformer(entity);
             var output = transformer?.TransformText() ?? string.Empty;
+            if (!withIndent) return output;
             var indented = output.Split(Environment.NewLine);
             var res = string.Join(Environment.NewLine, indented.Select(x => string.IsNullOrWhiteSpace(x) ? x : (Indent == 0 ? x : new string(' ', 4) + x)));
             return res;
 
         }
 
+        internal string Transform(List<WinRTAttributeUsage> attrs, bool withNewlines)
+        {
+            if (withNewlines)
+            {
+                var t = attrs.Select(_ => Transform(_, false));
+                return string.Join(Environment.NewLine, t);
+            }
+            else
+            {
+                var oldIndent = Indent;
+                Indent = 0;
+                var ret = string.Concat(attrs.Select(_ => Transform(_, true)));
+                Indent = oldIndent;
+                return ret;
+            }
+        }
         private Transformer? GetTransformer(WinRTEntity entity)
         {
             Transformer? transformer = null;

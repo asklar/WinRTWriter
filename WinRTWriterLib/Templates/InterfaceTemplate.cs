@@ -18,9 +18,9 @@ namespace WinRTWriterLib.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "F:\WinRTWriter\WinRTWriterLib\Templates\AttributeTemplate.tt"
+    #line 1 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class AttributeTemplate : AttributeTemplateBase
+    public partial class InterfaceTemplate : InterfaceTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,21 +28,91 @@ namespace WinRTWriterLib.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("[");
             
-            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\AttributeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Attribute.Name));
-            
-            #line default
-            #line hidden
-            this.Write("(");
-            
-            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\AttributeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Attribute.ArgumentsString));
+            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+
+  foreach (var attr in Interface.Attributes)
+  {
+
             
             #line default
             #line hidden
-            this.Write(")]");
+            
+            #line 10 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(attr)));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 11 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+
+  }
+
+            
+            #line default
+            #line hidden
+            this.Write("interface ");
+            
+            #line 14 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Interface.Name));
+            
+            #line default
+            #line hidden
+            
+            #line 14 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Interface.Interfaces.Count != 0 ? ": " + string.Join(", ", Interface.Interfaces.Select(_ => _.Name)) : ""));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n");
+            
+            #line 16 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+
+  Writer.Indent++;
+
+  foreach (var method in Interface.Methods)
+  {
+
+            
+            #line default
+            #line hidden
+            
+            #line 22 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(method)));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 23 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+
+  }
+
+  foreach (var method in Interface.Properties)
+  {
+
+            
+            #line default
+            #line hidden
+            
+            #line 29 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(method)));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 30 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+
+  }
+
+  Writer.Indent--;
+
+            
+            #line default
+            #line hidden
+            this.Write("}\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -54,7 +124,7 @@ namespace WinRTWriterLib.Templates
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class AttributeTemplateBase
+    public class InterfaceTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

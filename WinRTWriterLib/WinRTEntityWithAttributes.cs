@@ -2,6 +2,6 @@
 {
     public class WinRTEntityWithAttributes : WinRTEntity
     {
-        public List<WinRTAttribute> Attributes { get; private set; } = new();
+        public List<WinRTAttributeUsage> Attributes { get; private set; } = new();
     }
 }

@@ -15,13 +15,21 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AssemblyTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\AttributeTemplate.tt">
+    <None Update="Templates\AttributeUsageTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>AttributeTemplate.cs</LastGenOutput>
+      <LastGenOutput>AttributeUsageTemplate.cs</LastGenOutput>
     </None>
     <None Update="Templates\EnumTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EnumTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\InterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>InterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\MethodTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MethodTemplate.cs</LastGenOutput>
     </None>
     <None Update="Templates\PropertyTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -43,15 +51,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AssemblyTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\AttributeTemplate.cs">
+    <Compile Update="Templates\AttributeUsageTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>AttributeTemplate.tt</DependentUpon>
+      <DependentUpon>AttributeUsageTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\EnumTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>EnumTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\InterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>InterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\MethodTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MethodTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\PropertyTemplate.cs">
       <DesignTime>True</DesignTime>

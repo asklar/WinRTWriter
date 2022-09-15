@@ -18,9 +18,9 @@ namespace WinRTWriterLib.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+    #line 1 "F:\WinRTWriter\WinRTWriterLib\Templates\AttributeUsageTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class RuntimeClassTemplate : RuntimeClassTemplateBase
+    public partial class AttributeUsageTemplate : AttributeUsageTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,79 +28,21 @@ namespace WinRTWriterLib.Templates
         /// </summary>
         public virtual string TransformText()
         {
+            this.Write("[");
             
-            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(Class.Attributes, true)));
-            
-            #line default
-            #line hidden
-            this.Write("\r\nruntimeclass ");
-            
-            #line 7 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Class.Name));
+            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\AttributeUsageTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Attribute.Name));
             
             #line default
             #line hidden
+            this.Write("(");
             
-            #line 7 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Class.BaseClass != null ? $"extends {Class.BaseClass.Name}" : ""));
-            
-            #line default
-            #line hidden
-            
-            #line 7 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Class.Interfaces.Count != 0 ? ": " + string.Join(", ", Class.Interfaces.Select(_ => _.Name)) : ""));
+            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\AttributeUsageTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Attribute.ArgumentsString));
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n");
-            
-            #line 9 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-
-  Writer.Indent++;
-
-  foreach (var method in Class.Methods)
-  {
-
-            
-            #line default
-            #line hidden
-            
-            #line 15 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(method)));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 16 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-
-  }
-
-  foreach (var method in Class.Properties)
-  {
-
-            
-            #line default
-            #line hidden
-            
-            #line 22 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(method)));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 23 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-
-  }
-
-  Writer.Indent--;
-
-            
-            #line default
-            #line hidden
-            this.Write("}\r\n");
+            this.Write(")]");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -112,7 +54,7 @@ namespace WinRTWriterLib.Templates
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class RuntimeClassTemplateBase
+    public class AttributeUsageTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

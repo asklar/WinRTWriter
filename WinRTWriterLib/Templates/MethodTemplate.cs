@@ -18,9 +18,9 @@ namespace WinRTWriterLib.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+    #line 1 "F:\WinRTWriter\WinRTWriterLib\Templates\MethodTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class RuntimeClassTemplate : RuntimeClassTemplateBase
+    public partial class MethodTemplate : MethodTemplateBase
     {
 #line hidden
         /// <summary>
@@ -29,78 +29,56 @@ namespace WinRTWriterLib.Templates
         public virtual string TransformText()
         {
             
-            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(Class.Attributes, true)));
+            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\MethodTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Method.ReturnType.Name));
             
             #line default
             #line hidden
-            this.Write("\r\nruntimeclass ");
+            this.Write(" ");
             
-            #line 7 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Class.Name));
-            
-            #line default
-            #line hidden
-            
-            #line 7 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Class.BaseClass != null ? $"extends {Class.BaseClass.Name}" : ""));
+            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\MethodTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Method.Name));
             
             #line default
             #line hidden
+            this.Write("(");
             
-            #line 7 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Class.Interfaces.Count != 0 ? ": " + string.Join(", ", Class.Interfaces.Select(_ => _.Name)) : ""));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n{\r\n");
-            
-            #line 9 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\MethodTemplate.tt"
 
-  Writer.Indent++;
-
-  foreach (var method in Class.Methods)
+  foreach (var arg in Method.Arguments)
   {
 
             
             #line default
             #line hidden
             
-            #line 15 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(method)));
+            #line 9 "F:\WinRTWriter\WinRTWriterLib\Templates\MethodTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(arg.Attributes, false)));
             
             #line default
             #line hidden
-            this.Write("\r\n");
             
-            #line 16 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+            #line 9 "F:\WinRTWriter\WinRTWriterLib\Templates\MethodTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(arg.Type.Name));
+            
+            #line default
+            #line hidden
+            this.Write(" ");
+            
+            #line 9 "F:\WinRTWriter\WinRTWriterLib\Templates\MethodTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(arg.Name));
+            
+            #line default
+            #line hidden
+            
+            #line 9 "F:\WinRTWriter\WinRTWriterLib\Templates\MethodTemplate.tt"
 
   }
 
-  foreach (var method in Class.Properties)
-  {
-
             
             #line default
             #line hidden
-            
-            #line 22 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(method)));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 23 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
-
-  }
-
-  Writer.Indent--;
-
-            
-            #line default
-            #line hidden
-            this.Write("}\r\n");
+            this.Write(");");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -112,7 +90,7 @@ namespace WinRTWriterLib.Templates
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class RuntimeClassTemplateBase
+    public class MethodTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;
