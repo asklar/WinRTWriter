@@ -14,7 +14,7 @@
 interface <#= Interface.Name #><#= Interface.Interfaces.Count != 0 ? ": " + string.Join(", ", Interface.Interfaces.Select(_ => _.Name)) : ""  #>
 {
 <#
-  Writer.Indent++;
+  Writer.EnterScope();
 
   foreach (var method in Interface.Methods)
   {
@@ -30,6 +30,6 @@ interface <#= Interface.Name #><#= Interface.Interfaces.Count != 0 ? ": " + stri
 <#
   }
 
-  Writer.Indent--;
+  Writer.ExitScope();
 #>}
 

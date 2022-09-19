@@ -18,7 +18,7 @@ namespace WinRTWriterLib.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+    #line 1 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class InterfaceTemplate : InterfaceTemplateBase
     {
@@ -29,7 +29,7 @@ namespace WinRTWriterLib.Templates
         public virtual string TransformText()
         {
             
-            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            #line 6 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
 
   foreach (var attr in Interface.Attributes)
   {
@@ -38,14 +38,14 @@ namespace WinRTWriterLib.Templates
             #line default
             #line hidden
             
-            #line 10 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            #line 10 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(attr)));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 11 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            #line 11 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
 
   }
 
@@ -54,22 +54,22 @@ namespace WinRTWriterLib.Templates
             #line hidden
             this.Write("interface ");
             
-            #line 14 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            #line 14 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Interface.Name));
             
             #line default
             #line hidden
             
-            #line 14 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            #line 14 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Interface.Interfaces.Count != 0 ? ": " + string.Join(", ", Interface.Interfaces.Select(_ => _.Name)) : ""));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n");
             
-            #line 16 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            #line 16 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
 
-  Writer.Indent++;
+  Writer.EnterScope();
 
   foreach (var method in Interface.Methods)
   {
@@ -78,14 +78,14 @@ namespace WinRTWriterLib.Templates
             #line default
             #line hidden
             
-            #line 22 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            #line 22 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(method)));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 23 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            #line 23 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
 
   }
 
@@ -96,18 +96,18 @@ namespace WinRTWriterLib.Templates
             #line default
             #line hidden
             
-            #line 29 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            #line 29 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(method)));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 30 "F:\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
+            #line 30 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\InterfaceTemplate.tt"
 
   }
 
-  Writer.Indent--;
+  Writer.ExitScope();
 
             
             #line default

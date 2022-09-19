@@ -7,7 +7,7 @@
 runtimeclass <#= Class.Name #><#= Class.BaseClass != null ? $"extends {Class.BaseClass.Name}" : "" #><#= Class.Interfaces.Count != 0 ? " : " + string.Join(", ", Class.Interfaces.Select(_ => _.Name)) : ""  #>
 {
 <#
-  Writer.Indent++;
+  Writer.EnterScope();
 
   foreach (var method in Class.Methods)
   {
@@ -23,5 +23,5 @@ runtimeclass <#= Class.Name #><#= Class.BaseClass != null ? $"extends {Class.Bas
 <#
   }
 
-  Writer.Indent--;
+  Writer.ExitScope();
 #>}

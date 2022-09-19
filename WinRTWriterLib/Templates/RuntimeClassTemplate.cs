@@ -18,7 +18,7 @@ namespace WinRTWriterLib.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+    #line 1 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class RuntimeClassTemplate : RuntimeClassTemplateBase
     {
@@ -29,35 +29,35 @@ namespace WinRTWriterLib.Templates
         public virtual string TransformText()
         {
             
-            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+            #line 6 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(Class.Attributes, true)));
             
             #line default
             #line hidden
             this.Write("\r\nruntimeclass ");
             
-            #line 7 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+            #line 7 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Class.Name));
             
             #line default
             #line hidden
             
-            #line 7 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+            #line 7 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Class.BaseClass != null ? $"extends {Class.BaseClass.Name}" : ""));
             
             #line default
             #line hidden
             
-            #line 7 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+            #line 7 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Class.Interfaces.Count != 0 ? " : " + string.Join(", ", Class.Interfaces.Select(_ => _.Name)) : ""));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n");
             
-            #line 9 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+            #line 9 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
 
-  Writer.Indent++;
+  Writer.EnterScope();
 
   foreach (var method in Class.Methods)
   {
@@ -66,14 +66,14 @@ namespace WinRTWriterLib.Templates
             #line default
             #line hidden
             
-            #line 15 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+            #line 15 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(method)));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 16 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+            #line 16 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
 
   }
 
@@ -84,18 +84,18 @@ namespace WinRTWriterLib.Templates
             #line default
             #line hidden
             
-            #line 22 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+            #line 22 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(method)));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 23 "F:\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
+            #line 23 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\RuntimeClassTemplate.tt"
 
   }
 
-  Writer.Indent--;
+  Writer.ExitScope();
 
             
             #line default

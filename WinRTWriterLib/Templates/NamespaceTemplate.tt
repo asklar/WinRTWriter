@@ -6,13 +6,13 @@
 namespace <#= Namespace.Name #>
 {
 <#
-  Writer.Indent++;
+  Writer.EnterScope();
   foreach (var member in Namespace.Members)
   {
 #><#= Writer.Transform(member) #><#
   }
 
 
-  Writer.Indent--;
+  Writer.ExitScope();
 #>
 }

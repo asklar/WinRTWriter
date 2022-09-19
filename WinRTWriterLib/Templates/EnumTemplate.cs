@@ -18,7 +18,7 @@ namespace WinRTWriterLib.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "F:\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
+    #line 1 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class EnumTemplate : EnumTemplateBase
     {
@@ -30,16 +30,16 @@ namespace WinRTWriterLib.Templates
         {
             this.Write("enum ");
             
-            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
+            #line 6 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Enum.Name));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n");
             
-            #line 8 "F:\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
+            #line 8 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
 
-    Writer.Indent++;
+    Writer.EnterScope();
     foreach (var field in Enum.Fields)
     {
 
@@ -48,24 +48,24 @@ namespace WinRTWriterLib.Templates
             #line hidden
             this.Write("    ");
             
-            #line 13 "F:\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
+            #line 13 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.Name));
             
             #line default
             #line hidden
             this.Write(" = ");
             
-            #line 13 "F:\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
+            #line 13 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.Value));
             
             #line default
             #line hidden
             this.Write(",\r\n");
             
-            #line 14 "F:\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
+            #line 14 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\EnumTemplate.tt"
 
     }
-    Writer.Indent--;
+    Writer.ExitScope();
 
             
             #line default

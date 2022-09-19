@@ -2,6 +2,7 @@
 {
     public class WinRTMethod : WinRTEntityWithAttributes
     {
+        public bool IsStatic { get; set; }
         public WinRTVisibility Visibility { get; private set; }
         public WinRTMethod(string name, WinRTVisibility visibility = WinRTVisibility.Public)
         {

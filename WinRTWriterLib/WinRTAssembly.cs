@@ -1,4 +1,7 @@
-﻿namespace WinRTWriterLib
+﻿using System.Reflection;
+using System.Xml.Linq;
+
+namespace WinRTWriterLib
 {
     public class WinRTNamespace : WinRTEntity
     {
@@ -14,9 +17,28 @@
             return member;
         }
 
-        public WinRTNamespace DefineNamespace(string namespaceName)
+
+        public static WinRTNamespace DefineNamespace(string dottedNamespace)
         {
-            return DefineMember<WinRTNamespace>(namespaceName);
+            var fragments = dottedNamespace.Split('.');
+            if (fragments.Length == 1)
+            {
+                var ns = new WinRTNamespace() { Name = dottedNamespace };
+
+                return ns;
+            }
+            else
+            {
+                var top = DefineNamespace(fragments[0]);
+                var parent = top;
+                for (int i = 1; i < fragments.Length; i++)
+                {
+                    var child = parent.DefineMember<WinRTNamespace>(fragments[i]);
+                    child.Parent = parent;
+                    parent = child;
+                }
+                return parent; // innermost namespace
+            }
         }
 
         public WinRTRuntimeClass DefineRuntimeClass(string className)

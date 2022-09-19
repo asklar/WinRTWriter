@@ -6,6 +6,13 @@ namespace WinRTWriterLib
     {
         protected bool AllowNamespaceName { get; set; }
 
+        public WinRTEntity? Parent { get; protected set; }
+        public WinRTEntity GetTopLevel()
+        {
+            if (Parent == null) return this;
+            return Parent.GetTopLevel();
+        }
+
         private string? _name;
         public string? Name
         { 
@@ -27,6 +34,20 @@ namespace WinRTWriterLib
                 }
                 _name = value; 
             } 
+        }
+
+        public string? FullName
+        {
+            get
+            {
+                var parentFN = string.Empty;
+                if (Parent != null)
+                {
+                    parentFN = Parent.FullName + ".";
+                }
+
+                return parentFN + Name;
+            }
         }
     }
 }

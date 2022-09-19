@@ -6,8 +6,8 @@ namespace WinRTWriter
     {
         static void Main(string[] args)
         {
-            var writer = new Writer();
-            var assembly = writer.DefineNamespace("Contoso.UI");
+            var writer = new IDLWriter();
+            var assembly = WinRTNamespace.DefineNamespace("Contoso.UI");
 
             WinRTEnum @enum = assembly.DefineEnum("MyEnum");
             @enum.Fields.Add(new WinRTEnumValue(@enum, "Value1", 41));
@@ -27,7 +27,10 @@ namespace WinRTWriter
             button.Interfaces.Add(ibutton);
             button.Properties.Add(new WinRTProperty("EnumValue", @enum, WinRTVisibility.Protected) { IsReadOnly = true });
 
-            writer.Write();
+            writer.Write(new[] { assembly});
+
+            var winmd = new WinMDWriter();
+            winmd.Write(new[] { assembly });
         }
     }
 }

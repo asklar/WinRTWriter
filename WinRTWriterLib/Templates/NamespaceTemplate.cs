@@ -18,7 +18,7 @@ namespace WinRTWriterLib.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "F:\WinRTWriter\WinRTWriterLib\Templates\NamespaceTemplate.tt"
+    #line 1 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\NamespaceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class NamespaceTemplate : NamespaceTemplateBase
     {
@@ -30,16 +30,16 @@ namespace WinRTWriterLib.Templates
         {
             this.Write("namespace ");
             
-            #line 6 "F:\WinRTWriter\WinRTWriterLib\Templates\NamespaceTemplate.tt"
+            #line 6 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\NamespaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace.Name));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n");
             
-            #line 8 "F:\WinRTWriter\WinRTWriterLib\Templates\NamespaceTemplate.tt"
+            #line 8 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\NamespaceTemplate.tt"
 
-  Writer.Indent++;
+  Writer.EnterScope();
   foreach (var member in Namespace.Members)
   {
 
@@ -47,18 +47,18 @@ namespace WinRTWriterLib.Templates
             #line default
             #line hidden
             
-            #line 11 "F:\WinRTWriter\WinRTWriterLib\Templates\NamespaceTemplate.tt"
+            #line 12 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\NamespaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Writer.Transform(member)));
             
             #line default
             #line hidden
             
-            #line 11 "F:\WinRTWriter\WinRTWriterLib\Templates\NamespaceTemplate.tt"
+            #line 12 "C:\Users\asklar\Source\Repos\asklar\WinRTWriter\WinRTWriterLib\Templates\NamespaceTemplate.tt"
 
   }
 
 
-  Writer.Indent--;
+  Writer.ExitScope();
 
             
             #line default
